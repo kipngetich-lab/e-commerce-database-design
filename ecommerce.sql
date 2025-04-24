@@ -59,3 +59,35 @@ CREATE TABLE size_category (
     size_category_id INT PRIMARY KEY AUTO_INCREMENT,
     category_name VARCHAR(50) UNIQUE -- E.g., 'Clothing', 'Shoes'
 );
+
+-- size_option Table
+CREATE TABLE size_option (
+    size_option_id INT PRIMARY KEY AUTO_INCREMENT,
+    size_category_id INT,
+    size_value VARCHAR(20) UNIQUE, -- E.g., 'S', 'M', 'L', '42'
+    FOREIGN KEY (size_category_id) REFERENCES size_category(size_category_id)
+);
+
+-- product_item Table
+CREATE TABLE product_item (
+  product_item_id INT PRIMARY KEY AUTO_INCREMENT,
+  product_id INT,
+  sku VARCHAR(50) UNIQUE, -- Stock Keeping Unit
+  price DECIMAL(10, 2),
+  quantity_in_stock INT,
+  FOREIGN KEY (product_id) REFERENCES product(product_id)
+);
+
+
+
+
+-- product_attribute Table
+CREATE TABLE product_attribute (
+    attribute_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_item_id INT,
+    attribute_type_id INT,
+    attribute_value VARCHAR(255), -- Can store different data types as text
+    FOREIGN KEY (product_item_id) REFERENCES product_item(product_item_id),
+    FOREIGN KEY (attribute_type_id) REFERENCES attribute_type(attribute_type_id)
+
+);
