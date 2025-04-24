@@ -104,3 +104,17 @@ CREATE TABLE attribute_type (
     type_name VARCHAR(50) UNIQUE, -- E.g., 'Text', 'Number', 'Boolean'
     FOREIGN KEY (attribute_category_id) REFERENCES attribute_category(attribute_category_id)
 );
+
+--junction table for variations:
+--E.g you want to link a product_item to specific size_option and color choices:
+CREATE TABLE product_item_variation (
+    item_variation_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_item_id INT,
+    variation_id INT, -- Refers to product_variation (e.g., Size or Color variation)
+    size_option_id INT DEFAULT NULL,
+    color_id INT DEFAULT NULL,
+    FOREIGN KEY (product_item_id) REFERENCES product_item(product_item_id),
+    FOREIGN KEY (variation_id) REFERENCES product_variation(variation_id),
+    FOREIGN KEY (size_option_id) REFERENCES size_option(size_option_id),
+    FOREIGN KEY (color_id) REFERENCES color(color_id)
+);
