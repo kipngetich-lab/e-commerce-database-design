@@ -89,5 +89,18 @@ CREATE TABLE product_attribute (
     attribute_value VARCHAR(255), -- Can store different data types as text
     FOREIGN KEY (product_item_id) REFERENCES product_item(product_item_id),
     FOREIGN KEY (attribute_type_id) REFERENCES attribute_type(attribute_type_id)
+);
 
+-- attribute_category Table
+CREATE TABLE attribute_category (
+    attribute_category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(50) UNIQUE -- E.g., 'Physical', 'Technical'
+);
+
+-- attribute_type Table
+CREATE TABLE attribute_type (
+    attribute_type_id INT PRIMARY KEY AUTO_INCREMENT,
+    attribute_category_id INT,
+    type_name VARCHAR(50) UNIQUE, -- E.g., 'Text', 'Number', 'Boolean'
+    FOREIGN KEY (attribute_category_id) REFERENCES attribute_category(attribute_category_id)
 );
