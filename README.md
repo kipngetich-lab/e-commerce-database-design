@@ -1,4 +1,4 @@
-E-commerce-Database-Design
+weE-commerce-Database-Design
 
 1.  📘 Project Description
 This project involves the creation of a relational database schema for an e-commerce platform. The schema is designed using MySQL and focuses on efficient data organization for products, variations,
@@ -62,9 +62,9 @@ Attributes are flexible and typed to allow reusability and validation.
 Name: Joyce Nyambura
 Email: nyamburanjihia@gmail.com
 
-Name: Monicah
-Email:
+Name: Monica Mukanda
+Email:mukandamonica1@gmail.com
 
-Name:Kipngetic Josphat
-Email:joskipngetic07@gmail.com
+Name:Kipngetich Josphat
+Email:joskipngetich07@gmail.com
 
